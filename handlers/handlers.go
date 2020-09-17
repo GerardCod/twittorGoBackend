@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/GerardCod/twittorGoBackend/middlewares"
+	"github.com/GerardCod/twittorGoBackend/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
