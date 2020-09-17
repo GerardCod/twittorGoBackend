@@ -10,9 +10,14 @@ import (
 )
 
 const password = "6vQicR67scC9LXY"
-const dbName = "twittor"
 
-var connectionString = fmt.Sprintf("mongodb+srv://admin:%s@cluster0.vdjb1.mongodb.net/%s?retryWrites=true&w=majority", password, dbName)
+//DBName is the name of DB
+const DBName = "twittor"
+
+//UserCollection is the name of users collection
+const UserCollection = "users"
+
+var connectionString = fmt.Sprintf("mongodb+srv://admin:%s@cluster0.vdjb1.mongodb.net/%s?retryWrites=true&w=majority", password, DBName)
 
 //MongoConnection is the connection object for the database
 var MongoConnection = DBConnection()
