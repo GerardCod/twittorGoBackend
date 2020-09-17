@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/GerardCod/twittorGoBackend/bd"
 	"github.com/GerardCod/twittorGoBackend/models"
 )
 
