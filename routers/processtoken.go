@@ -10,8 +10,10 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
+// Email represents the user's email
 var Email string
 
+// UserID represents the user's id
 var UserID string
 
 //ProccessToken is a function that verifies the token's validity
@@ -30,9 +32,17 @@ func ProccessToken(token string) (*models.Claim, bool, string, error) {
 	})
 
 	if err == nil {
-		_, found, ID := bd.UserAlreadyExists(claims.Email)
+		_, found, _ := bd.UserAlreadyExists(claims.Email)
 		if found {
-
+			Email = claims.Email
+			UserID = claims.ID.Hex()
 		}
+		return claims, found, UserID, nil
 	}
+
+	if !validToken.Valid {
+		return claims, false, string(""), errors.New("invalid token")
+	}
+
+	return claims, false, string(""), err
 }
